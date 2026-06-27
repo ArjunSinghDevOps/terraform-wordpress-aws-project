@@ -2,58 +2,128 @@
 
 ## Project Overview
 
-This project provisions AWS infrastructure using Terraform and deploys a WordPress application on an EC2 instance.
+This project provisions AWS infrastructure using Terraform and deploys a WordPress application on an Ubuntu EC2 instance using Apache2 and PHP.
+
+---
+
+## Architecture
+
+Internet
+   |
+   V
+Security Group
+   |
+   V
+EC2 Instance (Ubuntu 24.04)
+   |
+   V
+Apache2 + PHP
+   |
+   V
+WordPress
+
+---
 
 ## Technologies Used
 
 - Terraform
 - AWS EC2
 - Security Groups
-- SSH
+- Ubuntu 24.04
 - Apache2
 - PHP
 - WordPress
+- SSH
+
+---
 
 ## Infrastructure Components
 
-- EC2 Instance (Ubuntu 24.04)
+- EC2 Instance (t3.micro)
 - Security Group
 - SSH Access
 - HTTP Access (Port 80)
+- Apache Web Server
+- PHP Runtime
+- WordPress CMS
+
+---
 
 ## Deployment Steps
 
-1. Create AWS infrastructure using Terraform
-2. Configure Security Group
-3. Connect to EC2 via SSH
-4. Install Apache
-5. Install PHP
-6. Download and configure WordPress
-7. Configure permissions
-8. Access WordPress via browser
-
-## Terraform Commands
+### 1. Initialize Terraform
 
 ```bash
 terraform init
+```
+
+### 2. Validate Configuration
+
+```bash
 terraform validate
+```
+
+### 3. Review Infrastructure Plan
+
+```bash
 terraform plan
+```
+
+### 4. Provision Infrastructure
+
+```bash
 terraform apply
-terraform destroy
+```
 
+### 5. SSH into EC2
 
-Project Architecture
+```bash
+ssh -i keypair.pem ubuntu@PUBLIC_IP
+```
 
-User Browser
-|
-v
-AWS Security Group (80,22)
-|
-v
-EC2 Ubuntu Server
-|
-v
-Apache + PHP
-|
-v
-WordPress
+### 6. Install Apache, PHP and WordPress
+
+```bash
+sudo apt update
+sudo apt install apache2 php mysql-client php-mysql unzip wget -y
+```
+
+### 7. Configure WordPress
+
+Access:
+
+```
+http://PUBLIC_IP
+```
+
+---
+
+## Screenshots
+
+### AWS EC2 Instance
+
+![EC2](screenshots/aws-ec2-instance.png)
+
+---
+
+### Nginx Default Page
+
+![Nginx](screenshots/nginx-default-page.png)
+
+---
+
+### Apache Default Page
+
+![Apache](screenshots/apache-default-page.png)
+
+---
+
+### Final WordPress Deployment
+
+![WordPress](screenshots/wordpress-blog.png)
+
+---
+
+## Final Output
+
+Successfully provisioned AWS infrastructure using Terraform and deployed WordPress on Apache2 running on Ubuntu EC2 instance.
