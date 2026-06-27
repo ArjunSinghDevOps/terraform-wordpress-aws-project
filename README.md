@@ -95,25 +95,26 @@ http://<PUBLIC_IP>
 
 ## AWS EC2 Instance
 
-![EC2](screenshots/aws-ec2-instance.png)
+![EC2](./screenshots/aws-ec2-instance.png)
 
 ---
 
 ## Nginx Default Page
 
-![Nginx](screenshots/nginx-default-page.png)
+![Nginx](./screenshots/nginx-default-page.png)
 
 ---
 
 ## Apache Default Page
 
-![Apache](screenshots/apache-default-page.png)
+![Apache](./screenshots/apache-default-page.png)
 
 ---
 
 ## Final WordPress Deployment
 
-![WordPress](screenshots/wordpress-blog.png)
+![WordPress](./screenshots/wordpress-blog.png)
+
 
 ---
 
